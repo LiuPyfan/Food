@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:orientation="vertical"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:paddingTop="@dimen/default_large_padding"
+                  android:background="@color/colorknowbg"
+        >
+    <LinearLayout
+                  android:orientation="vertical"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:paddingTop="@dimen/default_middle_padding"
+                  android:paddingBottom="@dimen/default_middle_padding"
+                  android:background="@color/default_white"
+        >
+        <TextView
+            android:id="@+id/tv_deli_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/default_tiny_padding"
+            android:textSize="@dimen/default_middle_tv"
+            android:layout_marginLeft="@dimen/default_middle_margin"
+            android:textColor="@color/default_black"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingRight="@dimen/default_middle_margin"
+            android:paddingLeft="@dimen/default_middle_margin"
+            >
+            <ImageView
+                android:id="@+id/iv_deli_img1"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="@dimen/know_pic_hei"
+                android:paddingRight="@dimen/default_middle_padding"
+                />
+            <ImageView
+                android:id="@+id/iv_deli_img2"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="@dimen/know_pic_hei"
+              
+
+                />
+            <ImageView
+                android:id="@+id/iv_deli_img3"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="@dimen/know_pic_hei"
+                android:paddingLeft="@dimen/default_middle_padding"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="@dimen/default_middle_padding"
+            android:layout_gravity="bottom">
+            <TextView
+                android:id="@+id/tv_deli_source"
+                android:textSize="@dimen/default_small_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@mipmap/ic_watch"
+                android:layout_marginLeft="@dimen/default_large_margin"
+                android:layout_gravity="center_horizontal"
+                />
+            <TextView
+                android:id="@+id/tv_deli_tail"
+                android:textSize="@dimen/default_small_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginRight="@dimen/default_small_margin"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>
+

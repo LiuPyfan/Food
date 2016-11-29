@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#ECCEB4</color>
+    <color name="colorPrimaryDark">#C87230</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="default_dark_orange">#C87230</color>
+    <color name="default_dark_title_orange">#dc4220</color>
+
+    <color name="default_light_orange">#ECCEB4</color>
+    <color name="default_black">#000000</color>
+    <color name="default_white">#ffffff</color>
+    <color name="default_bg">#867F7E</color>
+    <color name="colorView">#9c9a97</color>
+    <color name="default_divider_bg">#efeceb</color>
+    <color name="colorknowbg">#e9eae8</color>
+
+
+</resources>

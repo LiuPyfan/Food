@@ -1,0 +1,40 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="default_tiny_margin">3dp</dimen>
+    <dimen name="default_small_margin">5dp</dimen>
+    <dimen name="default_middle_margin">8dp</dimen>
+    <dimen name="default_large_margin">10dp</dimen>
+    <dimen name="default_xlarge_margin">15dp</dimen>
+    <dimen name="default_tiny_padding">3dp</dimen>
+    <dimen name="default_small_padding">5dp</dimen>
+    <dimen name="default_middle_padding">8dp</dimen>
+    <dimen name="default_large_padding">10dp</dimen>
+    <dimen name="default_xlarge_padding">15dp</dimen>
+    <dimen name="default_tiny_tv">10sp</dimen>
+    <dimen name="default_xtiny_tv">12sp</dimen>
+    <dimen name="default_small_tv">14sp</dimen>
+    <dimen name="default_middle_tv">16sp</dimen>
+    <dimen name="default_large_tv">18sp</dimen>
+    <dimen name="library_button_height">40dp</dimen>
+    <dimen name="library_gv_category_margin">50dp</dimen>
+    <dimen name="library_gv_category_height">380dp</dimen>
+    <dimen name="library_gv_brand_height">460dp</dimen>
+    <dimen name="library_gv_chain_height">200dp</dimen>
+    <dimen name="home_title">45dp</dimen>
+    <dimen name="home_tl">40dp</dimen>
+    <dimen name="font_xxl">20sp</dimen>
+    <dimen name="home_ad_card">220dp</dimen>
+    <dimen name="home_content_card_height">240dp</dimen>
+    <dimen name="home_content_civ">30dp</dimen>
+    <dimen name="home_content_zan">20dp</dimen>
+    <dimen name="default_tiny_m">2dp</dimen>
+    <dimen name="default_tiny_p">4dp</dimen>
+    <dimen name="know_pic_wid">120dp</dimen>
+    <dimen name="know_pic_hei">80dp</dimen>
+    <dimen name="deli_tv_wid">200dp</dimen>
+    <dimen name="item_lib_iv">40dp</dimen>
+
+
+</resources>

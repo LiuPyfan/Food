@@ -1,0 +1,119 @@
+<com.pf.dllo.food.tools.MyScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+                                     xmlns:tools="http://schemas.android.com/tools"
+                                     android:layout_width="match_parent"
+                                     android:layout_height="match_parent"
+                                     xmlns:app="http://schemas.android.com/apk/res-auto"
+                                     android:orientation="vertical"
+                                     android:scrollbars="none"
+                                     android:id="@+id/scroll_root"
+                                     tools:context="com.pf.dllo.food.fragment.LibraryFragment">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:descendantFocusability="blocksDescendants"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/img_home_bg"
+                >
+
+                <ImageView
+                    android:id="@+id/iv_library_logo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_margin="15dp"
+                    android:src="@mipmap/ic_home_logo"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/iv_library_logo"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="30dp"
+                    android:text="@string/query_food_info"
+                    android:textColor="#ffffff"
+                    android:textSize="18sp"
+                    />
+
+                <Button
+                    android:id="@+id/btn_library_search"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="@dimen/default_large_margin"
+                    android:background="@color/default_white"
+                    android:gravity="left|center"
+                    android:textColor="@color/default_dark_orange"
+                    android:padding="@dimen/default_small_margin"
+                    android:drawableLeft="@mipmap/ic_home_search"
+                    android:text="@string/please_input_name"
+                    />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:background="#efeceb"
+                   >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/btn_library_search"
+                        android:layout_margin="@dimen/default_large_margin"
+                        android:background="@color/default_white"
+
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/btn_library_analysis"
+                            style="@style/library_btn"
+                            android:drawableTop="@drawable/selected_library_analysis_btn"
+                            android:text="@string/library_analysis"
+                            android:layout_marginBottom="@dimen/default_tiny_padding"
+                            android:textSize="@dimen/default_tiny_tv"/>
+
+                        <include layout="@layout/layout_vertical_divider"/>
+
+                        <Button
+                            android:id="@+id/btn_library_compare"
+                            style="@style/library_btn"
+                            android:drawableTop="@drawable/selected_library_compare_btn"
+                            android:text="@string/library_compare"
+                            android:textSize="@dimen/default_tiny_tv"/>
+
+                        <include layout="@layout/layout_vertical_divider"/>
+
+                        <Button
+                            android:id="@+id/btn_library_scan"
+                            style="@style/library_btn"
+                            android:drawableTop="@drawable/selected_library_scan_btn"
+                            android:text="@string/library_scan"
+                            android:textSize="@dimen/default_tiny_tv"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <include layout="@layout/gv_library"
+            android:id="@+id/include_category"/>
+        <include layout="@layout/gv_brand"
+                 android:id="@+id/include_brand"/>
+        <include layout="@layout/gv_chain"
+            android:id="@+id/include_chain"
+            />
+
+    </LinearLayout>
+</com.pf.dllo.food.tools.MyScrollView>
+

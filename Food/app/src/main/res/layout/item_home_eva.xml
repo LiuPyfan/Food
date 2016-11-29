@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    style="@style/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/home_content_card_height"
+    app:cardCornerRadius="1dp">
+
+    <ImageView
+        android:id="@+id/iv_eva_bg"
+        android:layout_marginTop="@dimen/default_xlarge_margin"
+        android:layout_marginLeft="@dimen/default_xlarge_margin"
+        android:layout_marginRight="@dimen/default_xlarge_margin"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:padding="@dimen/default_xlarge_padding">
+
+        <TextView
+            android:id="@+id/tv_eva_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="@color/default_white"
+            android:maxEms="15"
+            android:gravity="center"
+            />
+
+        <TextView
+            android:id="@+id/tv_eva_source"
+            android:textColor="@color/default_white"
+            android:padding="@dimen/default_xlarge_padding"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerInParent="true"
+            />
+
+        <TextView
+            android:id="@+id/tv_eva_tail"
+            android:textColor="@color/default_white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:drawableLeft="@mipmap/ic_read"
+            android:layout_centerHorizontal="true"/>
+
+    </RelativeLayout>
+
+
+</android.support.v7.widget.CardView>
+

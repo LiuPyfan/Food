@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl_library"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/default_middle_margin"
+    android:orientation="vertical"
+    tools:showIn="@layout/fragment_library">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/ic_home_category_bg"/>
+
+    <TextView
+        android:id="@+id/tv_library_brand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/default_middle_margin"
+        android:text="@string/library_tv_brand"
+        android:textSize="@dimen/default_small_tv"
+        />
+
+    <GridView
+        android:id="@+id/gv_library_brand"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/library_gv_brand_height"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/library_gv_category_margin"
+        android:background="@color/default_white"
+        android:horizontalSpacing="@dimen/default_large_margin"
+        android:numColumns="3"
+        android:scrollbars="none"
+        android:verticalSpacing="@dimen/default_large_margin"
+
+        />
+
+
+</RelativeLayout>

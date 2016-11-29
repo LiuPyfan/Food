@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+
+              android:layout_width="match_parent"
+              android:layout_height="250dp">
+
+<RelativeLayout
+    android:id="@+id/rl_library_head"
+    android:layout_width="match_parent"
+    android:background="@mipmap/img_home_bg"
+    android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/library_logo_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_home_logo"
+            android:layout_margin="@dimen/default_large_margin"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/query_food_info"
+            android:textSize="@dimen/default_large_tv"
+            android:textColor="@color/default_white"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/library_logo_iv"
+            android:layout_marginTop="30dp"
+            />
+
+
+        <Button
+            android:id="@+id/library_btn_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:drawableLeft="@mipmap/ic_home_search"
+            android:gravity="left|center"
+            android:textColor="@color/default_dark_orange"
+            android:textSize="@dimen/default_large_tv"
+            android:text="@string/please_input_name"
+            android:background="@color/default_white"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="@dimen/default_large_margin"
+            android:padding="@dimen/default_tiny_padding"
+
+
+
+
+
+
+            />
+</RelativeLayout>
+
+
+    <!--android:background="@drawable/shape_library_search"-->
+    </RelativeLayout>

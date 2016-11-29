@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Food</string>
+    <string name="default_dark_orange">#C87230</string>
+    <string name="default_light_orange">#ECCEB4</string>
+    <string name="library">食物百科</string>
+    <string name="homepage">主页</string>
+    <string name="my">我的</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="library_analysis">饮食分析</string>
+    <string name="library_compare">搜索对比</string>
+    <string name="library_scan">扫码对比</string>
+    <string name="library_tv_category">食物分类</string>
+    <string name="library_tv_brand">热门品牌</string>
+    <string name="library_tv_chain">连锁餐饮</string>
+    <string name="please_input_name">请输入食物名称</string>
+    <string name="query_food_info">查询食物信息</string>
+    <string name="my_click_to_login">点击登录</string>
+    <string name="home_home_title">逛吃</string>
+    <string name="please_input_food_name">请输入食物名称</string>
+    <string name="hv_been_search">最近搜过</string>
+    <string name="we_all_search">大家都在搜</string>
+</resources>

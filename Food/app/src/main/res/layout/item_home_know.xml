@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal"
+              android:paddingTop="@dimen/default_large_padding"
+              android:background="@color/colorknowbg"
+    >
+
+    <LinearLayout
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="horizontal"
+                  android:padding="@dimen/default_middle_padding"
+                  android:background="@color/default_white"
+        >
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/default_large_margin"
+
+            android:layout_weight="1"
+            >
+
+            <TextView
+                android:id="@+id/tv_know_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/default_black"
+                android:textSize="@dimen/default_middle_tv"
+                />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginRight="@dimen/default_small_margin"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:id="@+id/tv_know_source"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/default_small_tv"
+                    />
+
+                <ImageView
+                    android:id="@+id/iv_know_watch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="@dimen/default_small_margin"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_horizontal"
+                    android:src="@mipmap/ic_watch"
+                    />
+
+                <TextView
+                    android:textSize="@dimen/default_small_tv"
+                    android:id="@+id/tv_know_tail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:singleLine="true"
+                    />
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/iv_know_img"
+            android:layout_width="@dimen/know_pic_wid"
+            android:layout_height="@dimen/know_pic_hei"
+            android:layout_gravity="center"
+            />
+    </LinearLayout>
+</LinearLayout>

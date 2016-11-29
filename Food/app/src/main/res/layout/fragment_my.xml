@@ -1,0 +1,26 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+              android:orientation="vertical"
+             tools:context="com.pf.dllo.food.fragment.MyFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <!--<TextView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:text="@string/hello_blank_fragment"/>-->
+    <!--<com.pf.dllo.food.tools.MyItemView-->
+        <!--xmlns:tools="http://schemas.android.com/apk/res/com.pf.dllo.food.tools"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+
+        <!--/>-->
+    <include layout="@layout/item_my_head"/>
+    <ListView
+        android:id="@+id/lv_my"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <include layout="@layout/layout_horizontal_divider"/>
+
+</LinearLayout>
