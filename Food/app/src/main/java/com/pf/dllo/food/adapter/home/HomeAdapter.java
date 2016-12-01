@@ -11,7 +11,9 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.pf.dllo.food.R;
 import com.pf.dllo.food.bean.home.HomeHomeBean;
+import com.pf.dllo.food.tools.OnRvClick;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -23,18 +25,38 @@ public class HomeAdapter extends RecyclerView.Adapter {
     private List<HomeHomeBean.FeedsBean> datas;
     private Context mContext;
 
+    private OnRvClick mOnRvClick;
+
+    public void setOnRvClick(OnRvClick onRvClick) {
+        mOnRvClick = onRvClick;
+    }
 
     public static final int CONTENT_CONTENT = 5;
     public static final int CONTENT_AD = 6;
 
+
+    public HomeAdapter(Context context) {
+        mContext = context;
+        datas = new ArrayList<>();
+    }
+
+
+//    public void setDatas(List<HomeHomeBean.FeedsBean> datas) {
+//        this.datas = datas;
+//        notifyDataSetChanged();
+//    }
+
+    public List<HomeHomeBean.FeedsBean> getDatas() {
+        return datas;
+    }
 
     public void setDatas(List<HomeHomeBean.FeedsBean> datas) {
         this.datas = datas;
         notifyDataSetChanged();
     }
 
-    public HomeAdapter(Context context) {
-        mContext = context;
+    public void setClear() {
+        datas.clear();
     }
 
     @Override
@@ -47,7 +69,7 @@ public class HomeAdapter extends RecyclerView.Adapter {
         RecyclerView.ViewHolder holder = null;
         switch (viewType) {
             case CONTENT_AD:
-                View viewAd= LayoutInflater.from(mContext).inflate(R.layout.item_home_ad, parent, false);
+                View viewAd = LayoutInflater.from(mContext).inflate(R.layout.item_home_ad, parent, false);
                 holder = new HomeAdVH(viewAd); // 易出现类型转换异常
                 break;
             case CONTENT_CONTENT:
@@ -57,9 +79,19 @@ public class HomeAdapter extends RecyclerView.Adapter {
         }
         return holder;
     }
+
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-      int type = getItemViewType(position);
+    public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
+        final int type = getItemViewType(position);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int pos = holder.getAdapterPosition();
+                int types = datas.get(position).getContent_type();
+
+                mOnRvClick.onRvClick(pos,types);}
+
+        });
         switch (type) {
             case CONTENT_AD:
                 HomeAdVH adVH = (HomeAdVH) holder;
@@ -70,7 +102,7 @@ public class HomeAdapter extends RecyclerView.Adapter {
                 HomeContentVH contentVH = (HomeContentVH) holder;
                 contentVH.tvTitle.setText(datas.get(position).getTitle());
                 contentVH.tvPublish.setText(datas.get(position).getPublisher());
-                contentVH.tvLike.setText(datas.get(position).getLike_ct()+ "");
+                contentVH.tvLike.setText(datas.get(position).getLike_ct() + "");
                 Glide.with(mContext).load(datas.get(position).getCard_image()).into(contentVH.ivHome);
                 Glide.with(mContext).load(datas.get(position).getPublisher_avatar()).into(contentVH.ivAvatar);
                 break;

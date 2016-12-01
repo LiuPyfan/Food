@@ -29,21 +29,8 @@ public class DeliAdapter extends BaseAdapter {
 
     public static final int TYPE_COUNT = 3;
 
-
-
-
-
-
-    private HomeDeliBean bean;
-
-    public void setBean(HomeDeliBean bean) {
-        this.bean = bean;
-        notifyDataSetChanged();
-    }
-
     public void setDatas(List<HomeDeliBean.FeedsBean> datas) {
-//        this.datas = datas;
-        this.datas.addAll(datas);
+        this.datas = datas;
         notifyDataSetChanged();
     }
 
@@ -55,7 +42,6 @@ public class DeliAdapter extends BaseAdapter {
     public DeliAdapter(Context context) {
         mContext = context;
         datas = new ArrayList<>();
-        bean = new HomeDeliBean();
     }
 
 

@@ -58,7 +58,7 @@ public class HomeFragment extends BaseFragment {
         mFragments = new ArrayList<>();
 //        for (String title:titles) {
 
-            mFragments.add( HomeHomeFragment.newInstance(NetValues.HOME_HOME));
+            mFragments.add( new HomeHomeFragment());
             mFragments.add(new HomeEvaFragment());
             mFragments.add(new HomeKnowFragment());
             mFragments.add(new HomeDeliFragment());

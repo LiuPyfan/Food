@@ -21,16 +21,16 @@ import java.util.List;
 public class EvaAdapter extends BaseAdapter{
     private List<HomeEvaBean.FeedsBean>datas;
     private Context mContext;
-    private HomeEvaBean bean;
-
-    public void setBean(HomeEvaBean bean) {
-        this.bean = bean;
-        notifyDataSetChanged();
-    }
+//    private HomeEvaBean bean;
+//
+//    public void setBean(HomeEvaBean bean) {
+//        this.bean = bean;
+//        notifyDataSetChanged();
+//    }
 
     public void setDatas(List<HomeEvaBean.FeedsBean> datas) {
-//        this.datas = datas;
-        this.datas.addAll(datas);
+        this.datas = datas;
+//        this.datas.addAll(datas);
         notifyDataSetChanged();
     }
 
@@ -42,7 +42,7 @@ public class EvaAdapter extends BaseAdapter{
     public EvaAdapter(Context context) {
         mContext = context;
         datas = new ArrayList<>();
-        bean = new HomeEvaBean();
+//        bean = new HomeEvaBean();
     }
 
     @Override

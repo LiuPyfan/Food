@@ -1,12 +1,14 @@
 package com.pf.dllo.food.fragment.home;
 
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.android.volley.VolleyError;
@@ -14,6 +16,8 @@ import com.google.gson.Gson;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.pf.dllo.food.R;
+import com.pf.dllo.food.activity.home.HomeDeliAty;
+import com.pf.dllo.food.activity.home.HomeKnowAty;
 import com.pf.dllo.food.adapter.home.DeliAdapter;
 import com.pf.dllo.food.bean.home.HomeDeliBean;
 import com.pf.dllo.food.fragment.BaseFragment;
@@ -29,11 +33,11 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class HomeDeliFragment extends BaseFragment  {
+public class HomeDeliFragment extends BaseFragment {
 
     private List<HomeDeliBean.FeedsBean> datas;
-//    private ListView mListView;
-private PullToRefreshListView mPullRefreshListView;
+
+    private PullToRefreshListView mPullRefreshListView;
     private int i = 1;
     private DeliAdapter mAdapter;
 
@@ -51,19 +55,14 @@ private PullToRefreshListView mPullRefreshListView;
 
     @Override
     protected void initData() {
-
-        datas = new ArrayList<>();
         mAdapter = new DeliAdapter(mContext);
         StartUrl(getMid(1));
         mPullRefreshListView.setAdapter(mAdapter);
         mPullRefreshListView.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<ListView>() {
             @Override
-            public void onPullDownToRefresh(
-                    PullToRefreshBase<ListView> refreshView) {
-
+            public void onPullDownToRefresh(PullToRefreshBase<ListView> refreshView) {
                 //这里写下拉刷新的任务
                 new PutDataTask().execute();
-
             }
 
             @Override
@@ -74,11 +73,7 @@ private PullToRefreshListView mPullRefreshListView;
 
             }
         });
-
-
-//        NetHelper.MyRequest(NetValues.HOME_DELI, HomeDeliBean.class, this);
     }
-
 
 
     public String getMid(int i) {
@@ -90,14 +85,27 @@ private PullToRefreshListView mPullRefreshListView;
     private void StartUrl(String url) {
 
 
-
         NetHelper.MyRequest(getMid(i), HomeDeliBean.class, new NetListener<HomeDeliBean>() {
             @Override
             public void successListener(HomeDeliBean response) {
-                datas = response.getFeeds();
-
+                List<HomeDeliBean.FeedsBean> data = response.getFeeds();
+                if (datas == null) {
+                    datas = data;
+                } else {
+                    for (int j = 0; j < data.size(); j++) {
+                        datas.add(data.get(j));
+                    }
+                }
                 mAdapter.setDatas(datas);
+                mPullRefreshListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
+                    @Override
+                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                        Intent intent = new Intent(mContext, HomeKnowAty.class);
+                        intent.putExtra("url", datas.get(i - 1).getLink());
+                        startActivity(intent);
+                    }
+                });
 
             }
 
@@ -107,10 +115,7 @@ private PullToRefreshListView mPullRefreshListView;
             }
         });
 
-
-
     }
-
 
     // 上拉加载的异步任务
     private class GetDataTask extends AsyncTask<Integer, Void, Integer> {
@@ -135,9 +140,7 @@ private PullToRefreshListView mPullRefreshListView;
             // Call onRefreshComplete when the list has been refreshed.
             mPullRefreshListView.onRefreshComplete();
         }
-
     }
-
 
     // 下拉刷新的异步任务
     private class PutDataTask extends AsyncTask<Integer, Void, Integer> {
@@ -166,22 +169,6 @@ private PullToRefreshListView mPullRefreshListView;
         }
 
     }
-
-
-
-//    @Override
-//    public void successListener(HomeDeliBean response) {
-//        datas = response.getFeeds();
-//
-//        DeliAdapter deliAdapter = new DeliAdapter(mContext);
-//        deliAdapter.setDatas(datas);
-//        mPullRefreshListView.setAdapter(deliAdapter);
-//    }
-//
-//    @Override
-//    public void errorListener(VolleyError error) {
-//
-//    }
 
 
 }

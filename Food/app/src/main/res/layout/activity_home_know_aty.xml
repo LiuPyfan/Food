@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.pf.dllo.food.activity.home.HomeHomeAty">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.7"
+        android:background="@color/default_white"
+        android:orientation="horizontal">
+
+
+        <ImageView
+            android:id="@+id/iv_eva_aty_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/default_large_margin"
+            android:src="@mipmap/mq_ic_back"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/default_middle_margin"
+            android:layout_toRightOf="@id/iv_eva_aty_back"
+            android:gravity="center_vertical|left"
+            android:text="@string/know_news_detail"
+
+            />
+
+
+    </LinearLayout>
+
+    <WebView
+        android:id="@+id/wv_know_aty"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="0.5dp"
+        android:layout_weight="8"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="0.5dp"
+        android:layout_weight="0.8"
+        android:background="@color/default_white"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+
+        <LinearLayout
+            android:id="@+id/eva_share_ll"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            >
+
+            <ImageView
+                android:id="@+id/iv_show_aty_share"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center"
+                android:src="@mipmap/ic_photo_share"/>
+
+            <TextView
+                android:id="@+id/tv_show_aty_share"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/tv_know_share"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/collect_ll"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/iv_show_aty_collect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center"
+                android:src="@mipmap/ic_news_keep_default"/>
+
+            <TextView
+                android:id="@+id/tv_show_aty_collect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center"
+                android:text="@string/tv_show_collect"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</LinearLayout>
+

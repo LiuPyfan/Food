@@ -59,7 +59,7 @@ public class HomeEvaFragment extends BaseFragment {
 
     @Override
     protected void initData() {
-        datas = new ArrayList<>();
+//        datas = new ArrayList<>();
         mAdapter = new EvaAdapter(mContext);
         StartUrl(getMid(1));
         mPullRefreshListView.setAdapter(mAdapter);
@@ -70,6 +70,7 @@ public class HomeEvaFragment extends BaseFragment {
 
                 //这里写下拉刷新的任务
                 new PutDataTask().execute();
+
 
             }
 
@@ -93,30 +94,38 @@ public class HomeEvaFragment extends BaseFragment {
     private void StartUrl(String url) {
 
 
-
-            NetHelper.MyRequest(getMid(i), HomeEvaBean.class, new NetListener<HomeEvaBean>() {
-                @Override
-                public void successListener(HomeEvaBean response) {
-                    datas = response.getFeeds();
-                    mAdapter.setDatas(datas);
-                    mPullRefreshListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                        @Override
-                        public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                            Intent intent = new Intent(mContext, HomeEvaAty.class);
-                            intent.putExtra("url",datas.get(i).getLink());
-                            startActivity(intent);
-                        }
-                    });
-
-
+        NetHelper.MyRequest(getMid(i), HomeEvaBean.class, new NetListener<HomeEvaBean>() {
+            @Override
+            public void successListener(HomeEvaBean response) {
+              List<HomeEvaBean.FeedsBean>  data = response.getFeeds();
+                if (datas == null){
+                    datas = data;
+                }else {
+                    for (int j = 0; j < data.size(); j++) {
+                      datas.add(data.get(j));
+                    }
                 }
+                mAdapter.setDatas(datas);
 
-                @Override
-                public void errorListener(VolleyError error) {
+                mPullRefreshListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
-                }
-            });
+                    @Override
+                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                        Intent intent = new Intent(mContext, HomeEvaAty.class);
+                        intent.putExtra("url", datas.get(i - 1).getLink());
+                        startActivity(intent);
+                    }
+                });
 
+
+            }
+
+
+            @Override
+            public void errorListener(VolleyError error) {
+
+            }
+        });
 
 
     }

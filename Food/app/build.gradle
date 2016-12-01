@@ -35,5 +35,7 @@ dependencies {
     compile 'com.flyco.roundview:FlycoRoundView_Lib:1.1.4@aar'
     compile 'com.flyco.tablayout:FlycoTabLayout_Lib:2.0.2@aar'
     compile 'com.github.userswlwork:pull-to-refresh:1.0.0'
+    compile 'com.wuxiaolong.pullloadmorerecyclerview:library:1.1.2'
+    compile 'com.github.jdsjlzx:LRecyclerView:1.2.8'
 //    compile project(':library')
 }

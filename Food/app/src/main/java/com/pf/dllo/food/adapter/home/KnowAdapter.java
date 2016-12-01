@@ -13,6 +13,7 @@ import com.pf.dllo.food.R;
 import com.pf.dllo.food.bean.home.HomeKnowBean;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -25,9 +26,12 @@ public class KnowAdapter extends BaseAdapter{
         this.datas = datas;
         notifyDataSetChanged();
     }
-
+    public void clean(){
+        datas.clear();
+    }
     public KnowAdapter(Context context) {
         mContext = context;
+        datas = new ArrayList<>();
     }
    
     @Override

@@ -27,12 +27,16 @@ public class NetValues {
 
     // 首页
     public static final String HOME_HOME = "http://food.boohee.com/fb/v1/feeds/category_feed?page=1&category=1&per=10";
+    public static final String HOME_HOME_HEAD = "http://food.boohee.com/fb/v1/feeds/category_feed?page=";
+    public static final String HOME_HOME_TAIL = "&category=1&per=10";
     // 测评
     public static final String HOME_EVA = "http://food.boohee.com/fb/v1/feeds/category_feed?page=1&category=2&per=10";
     public static final String HOME_EVA_HEAD = "http://food.boohee.com/fb/v1/feeds/category_feed?page=";
     public static final String HOME_EVA_TAIL = "&category=2&per=10";
     // 知识
     public static final String HOME_KNOW = "http://food.boohee.com/fb/v1/feeds/category_feed?page=1&category=3&per=10";
+    public static final String HOME_KNOW_HEAD = "http://food.boohee.com/fb/v1/feeds/category_feed?page=";
+    public static final String HOME_KNOW_TAIL = "&category=3&per=10";
     // 美食
     public static final String HOME_DELI = "http://food.boohee.com/fb/v1/feeds/category_feed?page=1&category=4&per=10";
     public static final String HOME_DELI_HEAD = "http://food.boohee.com/fb/v1/feeds/category_feed?page=";

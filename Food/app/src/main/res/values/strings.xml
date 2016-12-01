@@ -21,4 +21,7 @@
     <string name="please_input_food_name">请输入食物名称</string>
     <string name="hv_been_search">最近搜过</string>
     <string name="we_all_search">大家都在搜</string>
+    <string name="know_news_detail">资讯详情</string>
+    <string name="tv_know_share">分享</string>
+    <string name="tv_show_collect">收藏</string>
 </resources>

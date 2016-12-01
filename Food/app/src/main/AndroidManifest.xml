@@ -22,6 +22,14 @@
         </activity>
         <activity android:name=".activity.home.HomeEvaAty">
         </activity>
+        <activity android:name=".activity.home.HomeHomeAty">
+        </activity>
+        <activity android:name=".activity.home.HomeHomeAdAty">
+        </activity>
+        <activity android:name=".activity.home.HomeKnowAty">
+        </activity>
+        <activity android:name=".activity.home.HomeDeliAty">
+        </activity>
     </application>
 
 </manifest>

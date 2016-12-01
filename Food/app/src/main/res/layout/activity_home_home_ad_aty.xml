@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.pf.dllo.food.activity.home.HomeHomeAty">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.8"
+        android:background="@color/default_white">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/iv_home_aty_ad_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/default_large_margin"
+                android:src="@mipmap/mq_ic_back" />
+
+            <TextView
+                android:id="@+id/tv_home_aty_ad_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/default_small_margin"
+                android:layout_toRightOf="@id/iv_home_aty_ad_back"
+                android:text="梦话 - 睡个好觉,画个好梦" />
+
+            <ImageView
+                android:id="@+id/iv_home_aty_ad_share"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:gravity="right"
+                android:visibility="gone"
+                android:src="@mipmap/ic_share_dark" />
+
+        </RelativeLayout>
+    </LinearLayout>
+
+    <!--<include layout="@layout/layout_horizontal_divider" />-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="0.5dp"
+        android:layout_weight="8"
+        android:background="@color/default_white">
+        <WebView
+            android:id="@+id/wv_home_aty_ad"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+
+    <include layout="@layout/layout_horizontal_divider" />
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="0dp"-->
+        <!--android:layout_marginTop="@dimen/default_large_margin"-->
+        <!--android:layout_weight="0.8"-->
+        <!--android:background="@color/default_white">-->
+
+        <!--<RelativeLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent">-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/tv_home_aty_like"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_centerInParent="true"-->
+                <!--android:drawableLeft="@mipmap/ic_photo_agree"-->
+                <!--android:gravity="center_vertical"-->
+                <!--/>-->
+        <!--</RelativeLayout>-->
+
+
+    <!--</LinearLayout>-->
+</LinearLayout>

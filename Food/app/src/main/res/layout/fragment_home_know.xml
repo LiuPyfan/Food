@@ -2,15 +2,22 @@
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
+             xmlns:ptr="http://schemas.android.com/apk/res-auto"
              tools:context="com.pf.dllo.food.fragment.home.HomeKnowFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <ListView
+    <com.handmark.pulltorefresh.library.PullToRefreshListView
         android:id="@+id/lv_know"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:divider="@null"
         android:scrollbars="none"
+        android:fadingEdge="none"
+        android:fastScrollEnabled="false"
+        android:footerDividersEnabled="false"
+        android:headerDividersEnabled="false"
+        android:smoothScrollbar="true"
+        ptr:ptrMode="both"
         />
 
 </FrameLayout>
