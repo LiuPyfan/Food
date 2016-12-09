@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:id="@+id/root_ll_lib_aty_gv"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+        <GridView
+            android:id="@+id/gv_lib_aty_pop"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:gravity="center"
+           android:paddingRight="@dimen/default_middle_padding"
+           android:paddingLeft="@dimen/default_middle_padding"
+            android:background="@color/default_white"
+            android:numColumns="3"
+            android:scrollbars="none"
+            android:verticalSpacing="@dimen/default_middle_margin"
+            />
+</LinearLayout>

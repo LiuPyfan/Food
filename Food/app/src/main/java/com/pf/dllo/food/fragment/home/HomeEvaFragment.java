@@ -97,7 +97,7 @@ public class HomeEvaFragment extends BaseFragment {
         NetHelper.MyRequest(getMid(i), HomeEvaBean.class, new NetListener<HomeEvaBean>() {
             @Override
             public void successListener(HomeEvaBean response) {
-              List<HomeEvaBean.FeedsBean>  data = response.getFeeds();
+              final List<HomeEvaBean.FeedsBean>  data = response.getFeeds();
                 if (datas == null){
                     datas = data;
                 }else {
@@ -112,14 +112,13 @@ public class HomeEvaFragment extends BaseFragment {
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                         Intent intent = new Intent(mContext, HomeEvaAty.class);
+                        intent.putExtra("title",data.get(i-1).getTitle());
                         intent.putExtra("url", datas.get(i - 1).getLink());
                         startActivity(intent);
                     }
                 });
 
-
             }
-
 
             @Override
             public void errorListener(VolleyError error) {

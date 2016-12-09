@@ -5,6 +5,7 @@
     <color name="colorAccent">#FF4081</color>
     <color name="default_dark_orange">#C87230</color>
     <color name="default_dark_title_orange">#dc4220</color>
+    <color name="default_dark_red">#de341e</color>
 
     <color name="default_light_orange">#ECCEB4</color>
     <color name="default_black">#000000</color>

@@ -9,6 +9,8 @@
         android:layout_height="50dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
         android:orientation="horizontal">
 
         <ImageButton
@@ -28,8 +30,6 @@
             android:layout_weight="1.5"
             android:background="@drawable/bg_edittext"
             android:drawableRight="@mipmap/ic_clear"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
             android:hint="@string/please_input_food_name"
             android:padding="@dimen/default_tiny_p"
             android:singleLine="true"
@@ -54,6 +54,7 @@
     </LinearLayout>
 
     <include layout="@layout/layout_horizontal_divider"/>
+    <include layout="@layout/layout_horizontal_divider"/>
 
     <!--最近搜过 和 大家都在搜放在 ScrollView 中-->
     <ScrollView
@@ -71,18 +72,20 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <!--<include layout="@layout/layout_horizontal_divider" />-->
+                <include layout="@layout/layout_horizontal_divider"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:background="@color/default_divider_bg"
                     android:gravity="center_vertical"
-                    android:padding="@dimen/default_large_padding"
+                    android:paddingBottom="@dimen/default_middle_padding"
+                    android:paddingLeft="@dimen/default_large_padding"
+                    android:paddingTop="@dimen/default_middle_padding"
                     android:text="@string/hv_been_search"
                     android:textSize="@dimen/default_middle_tv"/>
 
-                <!--<include layout="@layout/layout_horizontal_divider" />-->
+                <include layout="@layout/layout_horizontal_divider"/>
 
                 <ListView
                     android:id="@+id/lv_lib_search_history_aty"
@@ -90,25 +93,42 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="0.5dp"/>
 
+                <include layout="@layout/layout_horizontal_divider"/>
+
+                <TextView
+                    android:id="@+id/tv_lib_search_trash"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:drawableLeft="@mipmap/ic_trash"
+                    android:gravity="center"
+                    android:text="清除历史记录"
+                    />
+
             </LinearLayout>
 
-            <!--<include layout="@layout/layout_horizontal_divider" />-->
+            <include layout="@layout/layout_horizontal_divider"/>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:background="@color/default_divider_bg"
                 android:gravity="center_vertical"
-                android:padding="@dimen/default_large_padding"
+                android:paddingBottom="@dimen/default_middle_padding"
+                android:paddingLeft="@dimen/default_large_padding"
+                android:paddingTop="@dimen/default_middle_padding"
+
                 android:text="@string/we_all_search"
                 android:textSize="@dimen/default_middle_tv"/>
 
 
-            <!--<include layout="@layout/layout_horizontal_divider" />-->
+            <include layout="@layout/layout_horizontal_divider"/>
 
 
             <!--用于显示大家都在搜的内容-->
             <android.support.v7.widget.RecyclerView
-                android:id="@+id/library_search_recycler"
+                android:id="@+id/rv_library_search"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_marginTop="0.5dp"

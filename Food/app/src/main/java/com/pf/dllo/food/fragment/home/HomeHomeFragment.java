@@ -87,6 +87,11 @@ public class HomeHomeFragment extends BaseFragment implements NetListener<HomeHo
                 }
 
             }
+
+            @Override
+            public void onRvClick(int pos) {
+
+            }
         });
         // 下拉刷新
         mRv.setOnRefreshListener(new OnRefreshListener() {
@@ -112,6 +117,7 @@ public class HomeHomeFragment extends BaseFragment implements NetListener<HomeHo
 
     public String getMid(int i) {
         String mid = NetValues.HOME_HOME_HEAD + i + NetValues.HOME_HOME_TAIL;
+
         return mid;
     }
 
@@ -138,147 +144,4 @@ public class HomeHomeFragment extends BaseFragment implements NetListener<HomeHo
     public void errorListener(VolleyError error) {
 
     }
-     //public class HomeHomeFragment extends BaseFragment implements NetListener<HomeHomeBean> {
-//
-//    private PullLoadMoreRecyclerView mRv;
-//    private int mCount =1 ;
-//    private HomeAdapter mHomeAdapter;
-//    private List<HomeHomeBean.FeedsBean> mData;
-//
-//    public static HomeHomeFragment newInstance(String url) {
-//
-//        Bundle args = new Bundle();
-//        args.putString("key",url);
-//        HomeHomeFragment fragment = new HomeHomeFragment();
-//        fragment.setArguments(args);
-//        return fragment;
-//    }
-//
-//
-//
-//    @Override
-//    protected int setLayout() {
-//        return R.layout.fragment_home_home;
-//    }
-//
-//    @Override
-//    protected void initView(View view) {
-//        mRv = bindView(R.id.rv_home_home);
-//
-//    }
-//
-//    @Override
-//    protected void initData() {
-//        mData = new ArrayList<>();
-//        mHomeAdapter = new HomeAdapter(mContext);
-//        StartUrl(getMid(mCount));
-//        mRv.setAdapter(mHomeAdapter);
-//        mRv.setStaggeredGridLayout(2);
-//        mRv.setOnPullLoadMoreListener(new PullLoadMoreRecyclerView.PullLoadMoreListener() {
-//            @Override
-//            public void onRefresh() {
-////                new PutDataTask().execute();
-//            }
-//            @Override
-//            public void onLoadMore() {
-//                mCount += 1;
-//                new Handler().postDelayed(new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        StartUrl(getMid(mCount));
-//                        mRv.setStaggeredGridLayout(2);
-////                        mHomeAdapter.notifyDataSetChanged();
-//                        mRv.setPullLoadMoreCompleted();
-//
-//                    }
-//                },1000);
-////                new GetDataTask().execute();
-//            }
-//        });
-//    }
-//
-//    public String getMid(int i) {
-//        String mid = NetValues.HOME_HOME_HEAD + i + NetValues.HOME_HOME_TAIL;
-//        return mid;
-//    }
-//
-//    private void StartUrl(String url) {
-//        NetHelper.MyRequest(getMid(mCount),HomeHomeBean.class,this);
-//    }
-//
-//
-//    @Override
-//    public void successListener(HomeHomeBean response) {
-//
-//        mData = response.getFeeds();
-//        mHomeAdapter.setDatas(mData);
-//        mRv.setStaggeredGridLayout(2);
-//    }
-//
-//    @Override
-//    public void errorListener(VolleyError error) {
-//
-//    }
-//
-//
-//    // 上拉加载的异步任务
-//    private class GetDataTask extends AsyncTask<Integer, Void, Integer> {
-//
-//        @Override
-//        protected Integer doInBackground(Integer... params) {
-//            try {
-//                Thread.sleep(1000);
-//                mCount += 1;
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
-//            return mCount;
-//        }
-//
-//        @Override
-//        protected void onPostExecute(Integer integer) {
-//            super.onPostExecute(integer);
-//            StartUrl(getMid(integer));
-//            mHomeAdapter.notifyDataSetChanged();
-//            // Call onRefreshComplete when the list has been refreshed.
-//            mRv.setPullLoadMoreCompleted();
-//        }
-//
-//    }
-//
-//    // 下拉刷新的异步任务
-//    private class PutDataTask extends AsyncTask<Integer, Void, Integer> {
-//
-//        @Override
-//        protected Integer doInBackground(Integer... params) {
-//            try {
-//                Thread.sleep(2000);
-//                mCount = 1;
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
-//            return mCount;
-//        }
-//
-//        @Override
-//        protected void onPostExecute(Integer integer) {
-//            super.onPostExecute(integer);
-//
-////            mHomeAdapter.setClear();
-//            StartUrl(getMid(integer));
-//            mHomeAdapter.notifyDataSetChanged();
-//            // Call onRefreshComplete when the list has been refreshed.
-//            mRv.setPullLoadMoreCompleted();
-//
-//        }
-//
-//    }
-//
-//    private void setRefresh(){
-////        mHomeAdapter.getDatas().clear();
-////        mHomeAdapter.setClear();
-//        mCount =1;
-//    }
-//
-//}
 }

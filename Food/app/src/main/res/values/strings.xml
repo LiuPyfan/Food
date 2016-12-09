@@ -24,4 +24,8 @@
     <string name="know_news_detail">资讯详情</string>
     <string name="tv_know_share">分享</string>
     <string name="tv_show_collect">收藏</string>
+    <string name="nutri_sort">营养素排序</string>
+    <string name="kind_all">全部</string>
+    <string name="order_high">从高到低</string>
+    <string name="order_low">从低到高</string>
 </resources>

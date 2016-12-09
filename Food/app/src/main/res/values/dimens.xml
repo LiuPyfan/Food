@@ -2,6 +2,9 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="default_title_height">43dp</dimen>
+    <dimen name="default_title_sub_height">40dp</dimen>
+    <dimen name="default_divider">1dp</dimen>
     <dimen name="default_tiny_margin">3dp</dimen>
     <dimen name="default_small_margin">5dp</dimen>
     <dimen name="default_middle_margin">8dp</dimen>
@@ -21,7 +24,9 @@
     <dimen name="library_gv_category_margin">50dp</dimen>
     <dimen name="library_gv_category_height">380dp</dimen>
     <dimen name="library_gv_brand_height">460dp</dimen>
-    <dimen name="library_gv_chain_height">200dp</dimen>
+    <dimen name="library_gv_chain_height">210dp</dimen>
+    <dimen name="pop_lib_location">110dp</dimen>
+    <dimen name="library_aty_pop_height">170dp</dimen>
     <dimen name="home_title">45dp</dimen>
     <dimen name="home_tl">40dp</dimen>
     <dimen name="font_xxl">20sp</dimen>
@@ -35,6 +40,9 @@
     <dimen name="know_pic_hei">80dp</dimen>
     <dimen name="deli_tv_wid">200dp</dimen>
     <dimen name="item_lib_iv">40dp</dimen>
+    <dimen name="civ_item_lib_aty">40dp</dimen>
+    <dimen name="civ_lib_aty">35dp</dimen>
+    <dimen name="iv_lib_aty">8dp</dimen>
 
 
 </resources>

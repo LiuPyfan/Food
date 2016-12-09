@@ -2,28 +2,20 @@ package com.pf.dllo.food.fragment;
 
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ScrollView;
-import android.widget.TextView;
 
 import com.android.volley.VolleyError;
-import com.google.gson.Gson;
 import com.pf.dllo.food.R;
-import com.pf.dllo.food.activity.LibSearchAty;
-import com.pf.dllo.food.adapter.LibraryGvAdapter;
+import com.pf.dllo.food.activity.lib.LibSearchAty;
+import com.pf.dllo.food.activity.lib.LibBrandAty;
+import com.pf.dllo.food.activity.lib.LibKind2Aty;
+import com.pf.dllo.food.adapter.lib.LibraryGvAdapter;
 import com.pf.dllo.food.bean.LibFraBean;
-import com.pf.dllo.food.tools.ITextChanged;
 import com.pf.dllo.food.tools.MyScrollView;
-import com.pf.dllo.food.tools.VolleyInstance;
-import com.pf.dllo.food.tools.VolleyResult;
 import com.pf.dllo.food.tools.net.NetHelper;
 import com.pf.dllo.food.tools.net.NetListener;
 import com.pf.dllo.food.values.NetValues;
@@ -38,18 +30,10 @@ public class LibraryFragment extends BaseFragment {
     private MyScrollView mScrollView;
 
 
-    private GridView mGvLib,mGvBrand,mGvChain;
+    private GridView mGvLib, mGvBrand, mGvChain;
     private Button mBtnSearch;
-
-
-    public static LibraryFragment newInstance() {
-
-        Bundle args = new Bundle();
-
-        LibraryFragment fragment = new LibraryFragment();
-        fragment.setArguments(args);
-        return fragment;
-    }
+    private List<LibFraBean.GroupBean.CategoriesBean> mDatas, brandDatas, chainDatas;
+    private Intent mIntent1;
 
     @Override
     protected int setLayout() {
@@ -65,6 +49,7 @@ public class LibraryFragment extends BaseFragment {
         mBtnSearch = bindView(R.id.btn_library_search);// 搜索
 
 
+
     }
 
     @Override
@@ -75,65 +60,162 @@ public class LibraryFragment extends BaseFragment {
             public void onScrollChanged(int x, int y, int oldx, int oldy) {
             }
         });
+
+
+
         // 网络请求
         NetHelper.MyRequest(NetValues.LIB_GV, LibFraBean.class, new NetListener<LibFraBean>() {
-            @Override
-            public void successListener(LibFraBean response) {
-                List<LibFraBean.GroupBean.CategoriesBean> datas = response.getGroup().get(0).getCategories();
-                LibraryGvAdapter libraryAdapter = new LibraryGvAdapter(mContext);
-                libraryAdapter.setDatas(datas);
-                mGvLib.setAdapter(libraryAdapter);
-            }
+                    @Override
+                    public void successListener(LibFraBean response) {
 
-            @Override
-            public void errorListener(VolleyError error) {
+                        for (int i = 0; i < 3; i++) {
+                            if (i == 0) {
 
-            }
-        });
-        VolleyInstance.getInstance().startRequest(NetValues.LIB_GV, new VolleyResult() {
-            @Override
-            public void getSuccess(String resultStr) {
-                Gson gson = new Gson();
-                LibFraBean bean = gson.fromJson(resultStr,LibFraBean.class);
-                List<LibFraBean.GroupBean.CategoriesBean> datas = bean.getGroup().get(1).getCategories();
-                LibraryGvAdapter brandAdapter = new LibraryGvAdapter(mContext);
-                brandAdapter.setDatas(datas);
-                mGvBrand.setAdapter(brandAdapter);
-
-            }
-
-            @Override
-            public void getFailure() {
-
-            }
-        });
-        VolleyInstance.getInstance().startRequest(NetValues.LIB_GV, new VolleyResult() {
-            @Override
-            public void getSuccess(String resultStr) {
-                Gson gson = new Gson();
-                LibFraBean bean = gson.fromJson(resultStr,LibFraBean.class);
-                List<LibFraBean.GroupBean.CategoriesBean> datas = bean.getGroup().get(2).getCategories();
-                LibraryGvAdapter chainAdapter = new LibraryGvAdapter(mContext);
-                chainAdapter.setDatas(datas);
-                mGvChain.setAdapter(chainAdapter);
-
-            }
-
-            @Override
-            public void getFailure() {
-
-            }
-        });
-
-        mBtnSearch.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent().setClass(mContext, LibSearchAty.class);
-                startActivity(intent);
-            }
-        });
+                                mDatas = response.getGroup().get(0).getCategories();
+                                LibraryGvAdapter libraryAdapter = new LibraryGvAdapter(mContext);
+                                libraryAdapter.setDatas(mDatas);
+                                mGvLib.setAdapter(libraryAdapter);
+                                GvLibClick(response);
 
 
+
+                            } else if (i == 1) {
+
+
+                                brandDatas = response.getGroup().get(1).getCategories();
+                                LibraryGvAdapter brandAdapter = new LibraryGvAdapter(mContext);
+                                brandAdapter.setDatas(brandDatas);
+                                mGvBrand.setAdapter(brandAdapter);
+
+                                GvBrandClick(response);
+
+                            } else if (i == 2) {
+
+                                chainDatas = response.getGroup().get(2).getCategories();
+                                LibraryGvAdapter chainAdapter = new LibraryGvAdapter(mContext);
+                                chainAdapter.setDatas(chainDatas);
+                                mGvChain.setAdapter(chainAdapter);
+
+                                GvChainClick(response);
+
+                            }
+
+                        }
+
+
+                    }
+
+                    @Override
+                    public void errorListener(VolleyError error) {
+
+                    }
+                }
+
+        );
+
+        mBtnSearch.setOnClickListener(new View.OnClickListener()
+
+                                      {
+                                          @Override
+                                          public void onClick(View view) {
+                                              Intent intent = new Intent().setClass(mContext, LibSearchAty.class);
+                                              startActivity(intent);
+
+                                          }
+                                      }
+
+        );
+
+    }
+
+    private void GvLibClick(final LibFraBean response) {
+        mGvLib.setOnItemClickListener(new AdapterView.OnItemClickListener()
+
+                                      {
+                                          @Override
+                                          public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                                              // 第二个pop
+                                              String gvLibUrl = NetValues.GV_LIB_SORT_HEAD + "group" + NetValues.GV_LIB_SORT_MID + mDatas.get(i).getId() + NetValues.GV_LIB_SORT_TAIL;
+//                                              Intent intent = new Intent(mContext, LibKindAty.class);
+                                              Intent intent = new Intent(mContext, LibKind2Aty.class);
+                                              intent.putExtra("libUrl", gvLibUrl);
+                                              // 上面的pop
+                                              int id = mDatas.get(i).getId();
+                                              int count = mDatas.get(i).getSub_category_count();
+
+                                              String kind = response.getGroup().get(0).getKind();
+                                              intent.putExtra("kind", kind);
+                                              intent.putExtra("pos", i);
+                                              intent.putExtra("id", id);
+                                              intent.putExtra("count", count);
+
+
+                                              startActivity(intent);
+//
+//                                              mIntent1 = new Intent("1");
+//                                              mIntent1.putExtra("kind",kind);
+//                                              mContext.sendBroadcast(mIntent1);
+                                          }
+                                      }
+
+
+        );
+    }
+
+    private void GvBrandClick(final LibFraBean response) {
+        mGvBrand.setOnItemClickListener(new AdapterView.OnItemClickListener()
+
+                                        {
+                                            @Override
+                                            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                                                String gvBrandUrl = NetValues.GV_LIB_SORT_HEAD + "brand" + NetValues.GV_LIB_SORT_MID + brandDatas.get(i).getId() + NetValues.GV_LIB_SORT_TAIL;
+                                                String kind = response.getGroup().get(1).getKind();
+//                                                Intent intent = new Intent(mContext, LibKindAty.class);
+                                                Intent intent = new Intent(mContext, LibBrandAty.class);
+                                                intent.putExtra("libUrl", gvBrandUrl);
+                                                // 上面的pop
+                                                int id = brandDatas.get(i).getId();
+                                                int count = brandDatas.get(i).getSub_category_count();
+                                                intent.putExtra("kind", kind);
+                                                intent.putExtra("pos", i);
+                                                intent.putExtra("id", id);
+                                                intent.putExtra("count", count);
+                                                startActivity(intent);
+
+
+                                            }
+                                        }
+
+        );
+    }
+
+    private void GvChainClick(final LibFraBean response) {
+        mGvChain.setOnItemClickListener(new AdapterView.OnItemClickListener()
+
+                                        {
+                                            @Override
+                                            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                                                String gvChainUrl = NetValues.GV_LIB_SORT_HEAD + "restaurant" + NetValues.GV_LIB_SORT_MID + chainDatas.get(i).getId() + NetValues.GV_LIB_SORT_TAIL;
+
+//                                                Intent intent = new Intent(mContext, LibKindAty.class);
+                                                Intent intent = new Intent(mContext, LibBrandAty.class);
+                                                intent.putExtra("libUrl", gvChainUrl);
+                                                // 上面的pop
+                                                int id = chainDatas.get(i).getId();
+                                                int count = chainDatas.get(i).getSub_category_count();
+                                                String kind = response.getGroup().get(2).getKind();
+                                                intent.putExtra("kind", kind);
+                                                intent.putExtra("pos", i);
+                                                intent.putExtra("id", id);
+                                                intent.putExtra("count", count);
+                                                startActivity(intent);
+//                                                mIntent1 = new Intent("2");
+//                                                mIntent1.putExtra("kind2",kind);
+//                                                mContext.sendBroadcast(mIntent1);
+
+                                            }
+                                        }
+        );
     }
 
 

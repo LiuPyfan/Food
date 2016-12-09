@@ -18,7 +18,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".activity.LibSearchAty">
+        <activity android:name=".activity.lib.LibSearchAty">
         </activity>
         <activity android:name=".activity.home.HomeEvaAty">
         </activity>
@@ -30,6 +30,13 @@
         </activity>
         <activity android:name=".activity.home.HomeDeliAty">
         </activity>
+        <activity android:name=".activity.lib.LibKindAty">
+        </activity>
+        <activity android:name=".activity.lib.LibKind2Aty">
+        </activity>
+        <activity android:name=".activity.lib.LibBrandAty">
+        </activity>
+        <activity android:name=".activity.lib.LibSearchDetailAty"/>
     </application>
 
 </manifest>

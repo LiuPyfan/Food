@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:context=".activity.lib.LibKindAty"
+        >
+
+    <item
+        android:id="@+id/menu_lib_all"
+        android:orderInCategory="100"
+        android:title="ListView" />
+    <item
+        android:id="@+id/menu_lib_first"
+        android:orderInCategory="100"
+        android:title="GridView" />
+    <item
+        android:id="@+id/menu_lib_second"
+        android:orderInCategory="100"
+        android:title="RecyclerView" />
+    <item
+        android:id="@+id/menu_lib_third"
+        android:title="Complicate" />
+
+</menu>

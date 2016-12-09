@@ -5,4 +5,5 @@ package com.pf.dllo.food.tools;
  */
 public interface OnRvClick {
     void onRvClick(int pos,int type);
+    void onRvClick(int pos);
 }

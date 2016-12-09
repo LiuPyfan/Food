@@ -5,16 +5,7 @@
              tools:context="com.pf.dllo.food.fragment.home.HomeHomeFragment">
 
      <!--TODO: Update blank fragment layout -->
-    <!--<android.support.v7.widget.RecyclerView-->
-        <!--android:id="@+id/rv_home_home"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--/>-->
-    <!--<com.wuxiaolong.pullloadmorerecyclerview.PullLoadMoreRecyclerView-->
-        <!--android:id="@+id/rv_home_home"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--/>-->
+
 
     <com.github.jdsjlzx.recyclerview.LRecyclerView
         android:id="@+id/rv_home_home"

@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'org.greenrobot.greendao'
 
 android {
     compileSdkVersion 24
@@ -16,6 +17,11 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+    greendao{
+        schemaVersion 1
+        daoPackage 'com.pf.dllo.food.db'
+        targetGenDir 'src/main/java'
     }
 }
 
@@ -37,5 +43,9 @@ dependencies {
     compile 'com.github.userswlwork:pull-to-refresh:1.0.0'
     compile 'com.wuxiaolong.pullloadmorerecyclerview:library:1.1.2'
     compile 'com.github.jdsjlzx:LRecyclerView:1.2.8'
+    compile 'org.greenrobot:eventbus:3.0.0'
+    compile 'com.github.razerdp:BasePopup:v1.4.3'
+    compile 'org.greenrobot:greendao:3.2.0'
+    compile 'org.greenrobot:greendao-generator:3.0.0'
 //    compile project(':library')
 }

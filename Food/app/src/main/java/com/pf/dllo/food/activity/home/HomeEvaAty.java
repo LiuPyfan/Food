@@ -13,12 +13,14 @@ import android.widget.ImageView;
 
 import com.pf.dllo.food.R;
 import com.pf.dllo.food.activity.BaseActivity;
+import com.pf.dllo.food.db.CollectBean;
+import com.pf.dllo.food.db.DBTool;
 
-public class HomeEvaAty extends BaseActivity  {
+public class HomeEvaAty extends BaseActivity implements View.OnClickListener {
 
 
     private WebView mWebView;
-
+    private ImageView ivCollect;
 
     @Override
     protected int setLayout() {
@@ -29,18 +31,24 @@ public class HomeEvaAty extends BaseActivity  {
     protected void initView() {
 
         mWebView = bindView(R.id.wv_home_eva);
+        ivCollect = bindView(R.id.iv_show_aty_collect);
+
     }
 
     @Override
     protected void initData() {
 
         webViewParse();
+  setClick(this,ivCollect);
     }
+
+
+
     private void webViewParse() {
         Intent intent = getIntent();
         if (intent != null) {
             // 网址
-           String  url = intent.getStringExtra("url");
+            String url = intent.getStringExtra("url");
 
 
             mWebView.loadUrl(url);
@@ -99,4 +107,18 @@ public class HomeEvaAty extends BaseActivity  {
         }
     }
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            // 点击收藏
+            case R.id.iv_show_aty_collect:
+                Intent intent = getIntent();
+                String title = intent.getStringExtra("title");
+                String url = intent.getStringExtra("url");
+                ivCollect.setImageResource(R.mipmap.ic_news_keep_heighlight);
+                CollectBean bean  = new CollectBean(null,title,url,null,null);
+                DBTool.getInstance().insertCollectBean(bean);
+                break;
+        }
+    }
 }

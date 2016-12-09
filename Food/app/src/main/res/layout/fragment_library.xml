@@ -5,6 +5,7 @@
                                      xmlns:app="http://schemas.android.com/apk/res-auto"
                                      android:orientation="vertical"
                                      android:scrollbars="none"
+                                     android:background="#efeceb"
                                      android:id="@+id/scroll_root"
                                      tools:context="com.pf.dllo.food.fragment.LibraryFragment">
 
@@ -30,7 +31,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
-                    android:layout_margin="15dp"
+                    android:layout_margin="@dimen/default_xlarge_margin"
                     android:src="@mipmap/ic_home_logo"/>
 
                 <TextView
@@ -41,7 +42,7 @@
                     android:layout_marginTop="30dp"
                     android:text="@string/query_food_info"
                     android:textColor="#ffffff"
-                    android:textSize="18sp"
+                    android:textSize="@dimen/default_large_tv"
                     />
 
                 <Button

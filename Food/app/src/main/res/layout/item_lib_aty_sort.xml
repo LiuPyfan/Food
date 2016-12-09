@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="0.5dp"
+              android:orientation="vertical">
+    <include layout="@layout/layout_horizontal_divider"/>
+    <!--总框-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <!--圆图-->
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/iv_lib_aty_thumb_url"
+            android:layout_width="@dimen/civ_lib_aty"
+            android:layout_height="@dimen/civ_lib_aty"
+            android:layout_centerVertical="true"
+            android:layout_margin="@dimen/default_middle_margin"
+            />
+        <!--字-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/iv_lib_aty_thumb_url">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tv_lib_aty_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_lib_aty_calory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_below="@id/tv_lib_aty_name"
+
+                    android:textColor="@color/default_dark_red"/>
+                <!--android:layout_toRightOf="@id/iv_lib_aty_thumb_url"-->
+                <TextView
+                    android:id="@+id/tv_lib_aty_qianka"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_lib_aty_name"
+                    android:layout_toRightOf="@id/tv_lib_aty_calory"
+                    android:text="千卡/"/>
+
+                <TextView
+                    android:id="@+id/tv_weight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_lib_aty_name"
+                    android:layout_toRightOf="@id/tv_lib_aty_qianka"
+                    android:text="100"/>
+
+                <TextView
+                    android:id="@+id/tv_ke"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_lib_aty_name"
+                    android:layout_toRightOf="@id/tv_weight"
+                    android:text="克"/>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/iv_lib_aty_health_light"
+            android:layout_width="@dimen/iv_lib_aty"
+            android:layout_height="@dimen/iv_lib_aty"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="@dimen/default_middle_margin"
+            />
+    </RelativeLayout>
+</LinearLayout>
