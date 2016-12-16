@@ -2,6 +2,7 @@ package com.pf.dllo.food.db;
 
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Id;
+import org.greenrobot.greendao.annotation.Generated;
 
 /**
  * Created by dllo on 2016/12/9.
@@ -12,6 +13,16 @@ public class SearchBean {
     @Id
     private Long id;
     private String name;
+
+    @Generated(hash = 118660477)
+    public SearchBean(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    @Generated(hash = 562045751)
+    public SearchBean() {
+    }
 
     public Long getId() {
         return id;

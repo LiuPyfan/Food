@@ -46,6 +46,11 @@ import java.util.List;
 
 import razerdp.basepopup.BasePopupWindow;
 
+/**
+ * 搜索详情
+ */
+
+
 public class LibSearchDetailAty extends BaseActivity implements NetListener<LibKindBean> {
 
     private EditText mEditText;// 搜索框
@@ -91,7 +96,15 @@ public class LibSearchDetailAty extends BaseActivity implements NetListener<LibK
         mIbReturn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (mEditText != null) {
+
+                    Intent intent = new Intent("com.pf.dllo.food.activity.lib.SEARCH_BR");
+                    intent.putExtra("result", "result");// 将返回的结果给数据库判断
+                    sendBroadcast(intent);
+                }
                 finish();
+
+
             }
         });
 

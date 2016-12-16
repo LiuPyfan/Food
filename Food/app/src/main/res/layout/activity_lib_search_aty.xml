@@ -1,114 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:orientation="vertical">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        android:orientation="horizontal">
-
-        <ImageButton
-            android:id="@+id/btn_lib_search_aty_back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="@null"
-            android:src="@mipmap/ic_back_dark_center"/>
-
-        <com.pf.dllo.food.tools.ClearEditText
-            android:id="@+id/et_lib_search_aty"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="@dimen/default_tiny_p"
-            android:layout_weight="1.5"
-            android:background="@drawable/bg_edittext"
-            android:drawableRight="@mipmap/ic_clear"
-            android:hint="@string/please_input_food_name"
-            android:padding="@dimen/default_tiny_p"
-            android:singleLine="true"
-            android:textSize="@dimen/default_middle_tv"/>
-
-        <!--<ImageButton-->
-        <!--android:id="@+id/iv_lib_search_del_aty"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_gravity="center"-->
-        <!--android:background="@null"-->
-        <!--android:src="@mipmap/ic_clear"-->
-        <!--android:visibility="invisible" />-->
-
-        <ImageButton
-            android:id="@+id/iv_lib_search_sea_aty"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="@null"
-            android:src="@mipmap/ic_homepage_search"/>
-    </LinearLayout>
-
-    <include layout="@layout/layout_horizontal_divider"/>
-    <include layout="@layout/layout_horizontal_divider"/>
-
-    <!--最近搜过 和 大家都在搜放在 ScrollView 中-->
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:background="@color/default_white"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/btn_lib_search_aty_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@null"
+                android:src="@mipmap/ic_back_dark_center"/>
+
+            <com.pf.dllo.food.tools.ClearEditText
+                android:id="@+id/et_lib_search_aty"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/default_tiny_p"
+                android:layout_weight="1.5"
+                android:background="@drawable/bg_edittext"
+                android:drawableRight="@mipmap/ic_clear"
+                android:hint="@string/please_input_food_name"
+                android:padding="@dimen/default_tiny_p"
+                android:singleLine="true"
+                android:textSize="@dimen/default_middle_tv"/>
+
+            <!--<ImageButton-->
+            <!--android:id="@+id/iv_lib_search_del_aty"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:background="@null"-->
+            <!--android:src="@mipmap/ic_clear"-->
+            <!--android:visibility="invisible" />-->
+
+            <ImageButton
+                android:id="@+id/iv_lib_search_sea_aty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@null"
+                android:src="@mipmap/ic_homepage_search"/>
+        </LinearLayout>
+
+        <include layout="@layout/layout_horizontal_divider"/>
+
+
+
+        <!--最近搜过 和 大家都在搜放在 ScrollView 中-->
+        <!--<ScrollView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content">-->
+
+        <ScrollView
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@color/default_white"
             android:orientation="vertical">
+
+
 
             <LinearLayout
                 android:id="@+id/library_search_history_ll"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@color/default_white"
                 android:orientation="vertical">
-
                 <include layout="@layout/layout_horizontal_divider"/>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:background="@color/default_divider_bg"
-                    android:gravity="center_vertical"
-                    android:paddingBottom="@dimen/default_middle_padding"
-                    android:paddingLeft="@dimen/default_large_padding"
-                    android:paddingTop="@dimen/default_middle_padding"
-                    android:text="@string/hv_been_search"
-                    android:textSize="@dimen/default_middle_tv"/>
-
-                <include layout="@layout/layout_horizontal_divider"/>
-
-                <ListView
+                <com.pf.dllo.food.tools.MyListView
                     android:id="@+id/lv_lib_search_history_aty"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="0.5dp"/>
+                    android:background="@color/default_white"
+                    android:layout_marginTop="1dp"/>
 
-                <include layout="@layout/layout_horizontal_divider"/>
-
-                <TextView
-                    android:id="@+id/tv_lib_search_trash"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_gravity="center"
-                    android:drawableLeft="@mipmap/ic_trash"
-                    android:gravity="center"
-                    android:text="清除历史记录"
-                    />
-
-            </LinearLayout>
-
-            <include layout="@layout/layout_horizontal_divider"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -118,7 +95,6 @@
                 android:paddingBottom="@dimen/default_middle_padding"
                 android:paddingLeft="@dimen/default_large_padding"
                 android:paddingTop="@dimen/default_middle_padding"
-
                 android:text="@string/we_all_search"
                 android:textSize="@dimen/default_middle_tv"/>
 
@@ -136,8 +112,10 @@
 
             </android.support.v7.widget.RecyclerView>
 
-        </LinearLayout>
+            </LinearLayout>
+
+        </ScrollView>
 
 
-    </ScrollView>
-</LinearLayout>
+        <!--</ScrollView>-->
+    </LinearLayout>

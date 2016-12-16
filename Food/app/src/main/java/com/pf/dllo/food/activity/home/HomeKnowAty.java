@@ -5,15 +5,21 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.ImageView;
 
 import com.pf.dllo.food.R;
 import com.pf.dllo.food.activity.BaseActivity;
 
-public class HomeKnowAty extends BaseActivity {
+import cn.sharesdk.framework.ShareSDK;
+import cn.sharesdk.onekeyshare.OnekeyShare;
+
+public class HomeKnowAty extends BaseActivity implements View.OnClickListener {
     private WebView mWebView;
+    private ImageView ivBack,ivCollect,ivShare;
 
     @Override
     protected int setLayout() {
@@ -23,6 +29,49 @@ public class HomeKnowAty extends BaseActivity {
     @Override
     protected void initView() {
         mWebView = bindView(R.id.wv_know_aty);
+        ivBack = bindView(R.id.iv_know_aty_back);
+        ivCollect =bindView(R.id.iv_know_aty_collect);
+        ivShare = bindView(R.id.iv_know_aty_share);
+        setClick(this, ivBack, ivShare);
+    }
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.iv_know_aty_back:
+                finish();
+                // 返回
+                break;
+            case R.id.iv_know_aty_share:
+                // 分享
+                showShare();
+                break;
+        }
+    }
+
+    private void showShare() {
+        ShareSDK.initSDK(this);
+        OnekeyShare oks = new OnekeyShare();
+        //关闭sso授权
+        oks.disableSSOWhenAuthorize();
+        // title标题，印象笔记、邮箱、信息、微信、人人网和QQ空间等使用
+        oks.setTitle("标题");
+        // titleUrl是标题的网络链接，QQ和QQ空间等使用
+        oks.setTitleUrl("http://www.baidu.com");
+        // text是分享文本，所有平台都需要这个字段
+        oks.setText("我是sdfjdsklf");
+        // imagePath是图片的本地路径，Linked-In以外的平台都支持此参数
+        //oks.setImagePath("/sdcard/test.jpg");//确保SDcard下面存在此张图片
+        // url仅在微信（包括好友和朋友圈）中使用
+        oks.setUrl("http://www.baidu.com");
+        // comment是我对这条分享的评论，仅在人人网和QQ空间使用
+        oks.setComment("我是kalsdfdsla");
+        // site是分享此内容的网站名称，仅在QQ空间使用
+        oks.setSite(getString(R.string.app_name));
+        // siteUrl是分享此内容的网站地址，仅在QQ空间使用
+        oks.setSiteUrl("http://www.baidu.com");
+
+        // 启动分享GUI
+        oks.show(this);
     }
 
     @Override

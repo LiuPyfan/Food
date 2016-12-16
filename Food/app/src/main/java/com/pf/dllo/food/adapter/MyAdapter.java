@@ -65,9 +65,6 @@ public class MyAdapter extends BaseAdapter {
         vh.ivRight.setImageResource(left[i]);
         vh.ivLeft.setImageResource(right[i]);
         vh.mTextView.setText(title[i]);
-        Log.d("MyAdapter", (title[i]));
-
-
         return view;
     }
 

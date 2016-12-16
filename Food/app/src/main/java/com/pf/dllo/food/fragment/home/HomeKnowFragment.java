@@ -36,7 +36,6 @@ import java.util.List;
 public class HomeKnowFragment extends BaseFragment  {
 
     private List<HomeKnowBean.FeedsBean> datas;
-//    private ListView mLv;
 
     /**
      * 上拉刷新的控件
@@ -130,7 +129,7 @@ public class HomeKnowFragment extends BaseFragment  {
         @Override
         protected Integer doInBackground(Integer... params) {
             try {
-                Thread.sleep(2000);
+                Thread.sleep(1000);
                 i += 1;
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -144,7 +143,6 @@ public class HomeKnowFragment extends BaseFragment  {
             parseUrl(getMid(integer));
 
             mAdapter.notifyDataSetChanged();
-            // Call onRefreshComplete when the list has been refreshed.
             mLv.onRefreshComplete();
         }
 
@@ -173,7 +171,6 @@ public class HomeKnowFragment extends BaseFragment  {
             parseUrl(getMid(integer));
 
             mAdapter.notifyDataSetChanged();
-            // Call onRefreshComplete when the list has been refreshed.
             mLv.onRefreshComplete();
         }
 

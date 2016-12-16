@@ -16,7 +16,6 @@
             android:id="@+id/iv_item_home_card"
             android:layout_width="match_parent"
             android:layout_height="@dimen/home_content_card_height"
-            android:src="@mipmap/ic_launcher"
             android:layout_gravity="center_horizontal"
             />
         <LinearLayout

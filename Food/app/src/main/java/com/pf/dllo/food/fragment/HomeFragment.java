@@ -26,7 +26,7 @@ import com.pf.dllo.food.values.NetValues;
 
 
 /**
- * A simple {@link Fragment} subclass.
+ * 逛吃
  */
 public class HomeFragment extends BaseFragment {
 
@@ -45,10 +45,6 @@ public class HomeFragment extends BaseFragment {
 
     @Override
     protected void initView(View view) {
-//        mViewPager = (ViewPager) bindView(R.id.vp_home);
-//        mTabLayout = (TabLayout) bindView(R.id.tl_home);
-//        mTabLayout = bindView(R.id.tl_home);
-
 
     }
 
@@ -56,16 +52,13 @@ public class HomeFragment extends BaseFragment {
     protected void initData() {
 
         mFragments = new ArrayList<>();
-//        for (String title:titles) {
 
             mFragments.add( new HomeHomeFragment());
             mFragments.add(new HomeEvaFragment());
             mFragments.add(new HomeKnowFragment());
             mFragments.add(new HomeDeliFragment());
 
-//        }
         for (int i = 0; i < titles.length; i++) {
-//            mTabBean.add(new TabBean(titles[i], mIconSelectIds[i], mIconUnselectIds[i]));
             mTabBean.add(new TabBean(titles[i]));
         }
 

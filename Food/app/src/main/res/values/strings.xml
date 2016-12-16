@@ -3,7 +3,7 @@
     <string name="default_dark_orange">#C87230</string>
     <string name="default_light_orange">#ECCEB4</string>
     <string name="library">食物百科</string>
-    <string name="homepage">主页</string>
+    <string name="homepage">逛吃</string>
     <string name="my">我的</string>
 
     <!-- TODO: Remove or change this placeholder text -->
@@ -28,4 +28,7 @@
     <string name="kind_all">全部</string>
     <string name="order_high">从高到低</string>
     <string name="order_low">从低到高</string>
+    <string name="edit_person_info">修改个人资料</string>
+    <string name="edit_user_name">修改个人资料</string>
+    <string name="my_collect">我的收藏</string>
 </resources>

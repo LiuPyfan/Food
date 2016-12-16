@@ -56,7 +56,7 @@ public class HomeDeliFragment extends BaseFragment {
     @Override
     protected void initData() {
         mAdapter = new DeliAdapter(mContext);
-        StartUrl(getMid(1));
+        startUrl(getMid(1));
         mPullRefreshListView.setAdapter(mAdapter);
         mPullRefreshListView.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<ListView>() {
             @Override
@@ -67,7 +67,6 @@ public class HomeDeliFragment extends BaseFragment {
 
             @Override
             public void onPullUpToRefresh(PullToRefreshBase<ListView> refreshView) {
-
                 //这里写上拉加载更多的任务
                 new GetDataTask().execute();
 
@@ -82,7 +81,7 @@ public class HomeDeliFragment extends BaseFragment {
 
     }
 
-    private void StartUrl(String url) {
+    private void startUrl(String url) {
 
 
         NetHelper.MyRequest(getMid(i), HomeDeliBean.class, new NetListener<HomeDeliBean>() {
@@ -123,7 +122,7 @@ public class HomeDeliFragment extends BaseFragment {
         @Override
         protected Integer doInBackground(Integer... params) {
             try {
-                Thread.sleep(2000);
+                Thread.sleep(1000);
                 i += 1;
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -134,10 +133,9 @@ public class HomeDeliFragment extends BaseFragment {
         @Override
         protected void onPostExecute(Integer integer) {
             super.onPostExecute(integer);
-            StartUrl(getMid(integer));
+            startUrl(getMid(integer));
 
             mAdapter.notifyDataSetChanged();
-            // Call onRefreshComplete when the list has been refreshed.
             mPullRefreshListView.onRefreshComplete();
         }
     }
@@ -148,7 +146,7 @@ public class HomeDeliFragment extends BaseFragment {
         @Override
         protected Integer doInBackground(Integer... params) {
             try {
-                Thread.sleep(2000);
+                Thread.sleep(1000);
                 i = 1;
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -161,10 +159,9 @@ public class HomeDeliFragment extends BaseFragment {
             super.onPostExecute(integer);
 
             mAdapter.clean();
-            StartUrl(getMid(integer));
+            startUrl(getMid(integer));
 
             mAdapter.notifyDataSetChanged();
-            // Call onRefreshComplete when the list has been refreshed.
             mPullRefreshListView.onRefreshComplete();
         }
 

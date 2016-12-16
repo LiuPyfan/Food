@@ -3,11 +3,10 @@ package com.pf.dllo.food.tools.net;
 import com.android.volley.VolleyError;
 
 /**
- * Created on 2016/11/28.
+ * Created on 2016/11/29.
  */
 
 /**
- *  @硕哥告诉你
  *  2016/11/28上午10:59
  *  定义一个接口 两个方法 分别是成功时候的回调
  *  失败时候的回调

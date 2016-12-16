@@ -61,7 +61,7 @@ public class HomeEvaFragment extends BaseFragment {
     protected void initData() {
 //        datas = new ArrayList<>();
         mAdapter = new EvaAdapter(mContext);
-        StartUrl(getMid(1));
+        startUrl(getMid(1));
         mPullRefreshListView.setAdapter(mAdapter);
         mPullRefreshListView.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<ListView>() {
             @Override
@@ -91,10 +91,10 @@ public class HomeEvaFragment extends BaseFragment {
 
     }
 
-    private void StartUrl(String url) {
+    private void startUrl(String url) {
 
 
-        NetHelper.MyRequest(getMid(i), HomeEvaBean.class, new NetListener<HomeEvaBean>() {
+        NetHelper.MyRequest(url, HomeEvaBean.class, new NetListener<HomeEvaBean>() {
             @Override
             public void successListener(HomeEvaBean response) {
               final List<HomeEvaBean.FeedsBean>  data = response.getFeeds();
@@ -136,7 +136,7 @@ public class HomeEvaFragment extends BaseFragment {
         @Override
         protected Integer doInBackground(Integer... params) {
             try {
-                Thread.sleep(2000);
+                Thread.sleep(1000);
                 i += 1;
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -147,10 +147,9 @@ public class HomeEvaFragment extends BaseFragment {
         @Override
         protected void onPostExecute(Integer integer) {
             super.onPostExecute(integer);
-            StartUrl(getMid(integer));
+            startUrl(getMid(integer));
 
             mAdapter.notifyDataSetChanged();
-            // Call onRefreshComplete when the list has been refreshed.
             mPullRefreshListView.onRefreshComplete();
         }
 
@@ -176,7 +175,7 @@ public class HomeEvaFragment extends BaseFragment {
             super.onPostExecute(integer);
 
             mAdapter.clean();
-            StartUrl(getMid(integer));
+            startUrl(getMid(integer));
 
             mAdapter.notifyDataSetChanged();
             // Call onRefreshComplete when the list has been refreshed.

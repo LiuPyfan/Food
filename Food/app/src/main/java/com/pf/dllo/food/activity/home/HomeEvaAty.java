@@ -16,11 +16,17 @@ import com.pf.dllo.food.activity.BaseActivity;
 import com.pf.dllo.food.db.CollectBean;
 import com.pf.dllo.food.db.DBTool;
 
+import cn.sharesdk.framework.ShareSDK;
+import cn.sharesdk.onekeyshare.OnekeyShare;
+
 public class HomeEvaAty extends BaseActivity implements View.OnClickListener {
 
 
     private WebView mWebView;
-    private ImageView ivCollect;
+    private ImageView ivCollect, ivShare, ivBack;
+    private boolean hasCollected = false;
+    private String mTitle;
+    private String mUrl;
 
     @Override
     protected int setLayout() {
@@ -32,17 +38,50 @@ public class HomeEvaAty extends BaseActivity implements View.OnClickListener {
 
         mWebView = bindView(R.id.wv_home_eva);
         ivCollect = bindView(R.id.iv_show_aty_collect);
-
+        ivShare = bindView(R.id.iv_show_aty_share);
+        ivBack = bindView(R.id.iv_eva_aty_back);
     }
 
     @Override
     protected void initData() {
 
         webViewParse();
-  setClick(this,ivCollect);
+        setClick(this, ivCollect, ivShare, ivBack);
+        Intent intent = getIntent();
+        mTitle = intent.getStringExtra("title");
+        mUrl = intent.getStringExtra("url");
+        if (DBTool.getInstance().isSave(mTitle)) {
+
+            ivCollect.setImageResource(R.mipmap.ic_news_keep_heighlight);
+            hasCollected = true;
+        }
     }
 
+    private void showShare() {
+        ShareSDK.initSDK(this);
+        OnekeyShare oks = new OnekeyShare();
+        //关闭sso授权
+        oks.disableSSOWhenAuthorize();
+        // title标题，印象笔记、邮箱、信息、微信、人人网和QQ空间等使用
+        oks.setTitle("标题");
+        // titleUrl是标题的网络链接，QQ和QQ空间等使用
+        oks.setTitleUrl("http://www.baidu.com");
+        // text是分享文本，所有平台都需要这个字段
+        oks.setText("我是sdfjdsklf");
+        // imagePath是图片的本地路径，Linked-In以外的平台都支持此参数
+        //oks.setImagePath("/sdcard/test.jpg");//确保SDcard下面存在此张图片
+        // url仅在微信（包括好友和朋友圈）中使用
+        oks.setUrl("http://www.baidu.com");
+        // comment是我对这条分享的评论，仅在人人网和QQ空间使用
+        oks.setComment("我是kalsdfdsla");
+        // site是分享此内容的网站名称，仅在QQ空间使用
+        oks.setSite(getString(R.string.app_name));
+        // siteUrl是分享此内容的网站地址，仅在QQ空间使用
+        oks.setSiteUrl("http://www.baidu.com");
 
+        // 启动分享GUI
+        oks.show(this);
+    }
 
     private void webViewParse() {
         Intent intent = getIntent();
@@ -109,15 +148,31 @@ public class HomeEvaAty extends BaseActivity implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             // 点击收藏
             case R.id.iv_show_aty_collect:
-                Intent intent = getIntent();
-                String title = intent.getStringExtra("title");
-                String url = intent.getStringExtra("url");
-                ivCollect.setImageResource(R.mipmap.ic_news_keep_heighlight);
-                CollectBean bean  = new CollectBean(null,title,url,null,null);
-                DBTool.getInstance().insertCollectBean(bean);
+                Log.e("tag", "iv_show_aty_collect-----------");
+                CollectBean bean = new CollectBean(null, mTitle, mUrl, null, null);
+                if (!hasCollected) {
+                    ivCollect.setImageResource(R.mipmap.ic_news_keep_heighlight);
+
+                    DBTool.getInstance().insertCollectBean(bean);
+                    hasCollected = true;
+                } else {
+                    ivCollect.setImageResource(R.mipmap.ic_news_keep_default);
+                    DBTool.getInstance().deleteByTitle(mTitle);
+                    hasCollected = false;
+                    Log.e("tag", "hasCollected = false-----------");
+                }
+                Log.d("HomeEvaAty", "DBTool.getInstance().isSave(title):" + DBTool.getInstance().isSave(mTitle));
+//                Log.d("HomeEvaAty", title);
+
+                break;
+            case R.id.iv_show_aty_share:
+                showShare();
+                break;
+            case R.id.iv_eva_aty_back:
+                finish();
                 break;
         }
     }

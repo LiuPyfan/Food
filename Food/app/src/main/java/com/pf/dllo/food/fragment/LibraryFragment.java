@@ -23,7 +23,7 @@ import com.pf.dllo.food.values.NetValues;
 import java.util.List;
 
 /**
- * A simple {@link Fragment} subclass.
+ * 食物百科一级界面
  */
 public class LibraryFragment extends BaseFragment {
 
@@ -33,7 +33,7 @@ public class LibraryFragment extends BaseFragment {
     private GridView mGvLib, mGvBrand, mGvChain;
     private Button mBtnSearch;
     private List<LibFraBean.GroupBean.CategoriesBean> mDatas, brandDatas, chainDatas;
-    private Intent mIntent1;
+
 
     @Override
     protected int setLayout() {
@@ -77,8 +77,6 @@ public class LibraryFragment extends BaseFragment {
                                 mGvLib.setAdapter(libraryAdapter);
                                 GvLibClick(response);
 
-
-
                             } else if (i == 1) {
 
 
@@ -99,9 +97,7 @@ public class LibraryFragment extends BaseFragment {
                                 GvChainClick(response);
 
                             }
-
                         }
-
 
                     }
 
@@ -120,7 +116,6 @@ public class LibraryFragment extends BaseFragment {
                                           public void onClick(View view) {
                                               Intent intent = new Intent().setClass(mContext, LibSearchAty.class);
                                               startActivity(intent);
-
                                           }
                                       }
 
@@ -149,12 +144,8 @@ public class LibraryFragment extends BaseFragment {
                                               intent.putExtra("id", id);
                                               intent.putExtra("count", count);
 
-
                                               startActivity(intent);
-//
-//                                              mIntent1 = new Intent("1");
-//                                              mIntent1.putExtra("kind",kind);
-//                                              mContext.sendBroadcast(mIntent1);
+
                                           }
                                       }
 
@@ -197,7 +188,6 @@ public class LibraryFragment extends BaseFragment {
                                             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                                                 String gvChainUrl = NetValues.GV_LIB_SORT_HEAD + "restaurant" + NetValues.GV_LIB_SORT_MID + chainDatas.get(i).getId() + NetValues.GV_LIB_SORT_TAIL;
 
-//                                                Intent intent = new Intent(mContext, LibKindAty.class);
                                                 Intent intent = new Intent(mContext, LibBrandAty.class);
                                                 intent.putExtra("libUrl", gvChainUrl);
                                                 // 上面的pop
@@ -209,9 +199,7 @@ public class LibraryFragment extends BaseFragment {
                                                 intent.putExtra("id", id);
                                                 intent.putExtra("count", count);
                                                 startActivity(intent);
-//                                                mIntent1 = new Intent("2");
-//                                                mIntent1.putExtra("kind2",kind);
-//                                                mContext.sendBroadcast(mIntent1);
+
 
                                             }
                                         }

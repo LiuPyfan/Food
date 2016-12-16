@@ -40,8 +40,8 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/my_icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_below="@id/tbar_my"
         android:layout_centerInParent="true"
         android:layout_margin="@dimen/default_large_margin"
@@ -57,9 +57,25 @@
         android:layout_centerHorizontal="true"
         android:background="@drawable/clicked_login_btn"
         android:gravity="center"
-        android:text="@string/my_click_to_login"
+        android:text="点击登录"
+
         android:textColor="@color/default_white"
         android:textSize="@dimen/default_middle_tv"/>
+    <TextView
+        android:id="@+id/my_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/my_login"
+        android:layout_marginTop="@dimen/default_small_margin"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/clicked_login_btn"
+        android:gravity="center"
+        android:paddingTop="@dimen/default_tiny_padding"
+        android:paddingBottom="@dimen/default_tiny_padding"
+        android:visibility="gone"
+        android:text="@string/edit_user_name"
+        android:textColor="@color/default_white"
+        android:textSize="@dimen/default_small_tv"/>
 </RelativeLayout>
 
 

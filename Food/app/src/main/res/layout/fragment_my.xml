@@ -16,7 +16,16 @@
         <!--android:layout_height="wrap_content"-->
 
         <!--/>-->
-    <include layout="@layout/item_my_head"/>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <include layout="@layout/item_my_head"
+             android:id="@+id/include1"/>
+        <include layout="@layout/item_login_head"
+                 android:visibility="gone"
+                 android:id="@+id/include2"/>
+
+    </FrameLayout>
     <ListView
         android:id="@+id/lv_my"
         android:layout_width="match_parent"

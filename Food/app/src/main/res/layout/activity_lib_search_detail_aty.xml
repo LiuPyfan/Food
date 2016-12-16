@@ -108,6 +108,7 @@
 
     <com.github.jdsjlzx.recyclerview.LRecyclerView
         android:id="@+id/rv_lib_search_detail_kind"
+
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         />

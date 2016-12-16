@@ -6,6 +6,8 @@ import android.content.Context;
 import com.pf.dllo.food.db.DaoMaster;
 import com.pf.dllo.food.db.DaoSession;
 
+import cn.sharesdk.framework.ShareSDK;
+
 /**
  * Created by dllo on 16/11/23.
  */
@@ -22,6 +24,7 @@ public class Food extends Application{
         // 生成时提供context,可用于数据库,数据库需要context,而每个应用只有一个数据库
         sContext = getApplicationContext();
 //        sContext = this;
+        ShareSDK.initSDK(this,"19cd9cb33da33");
 
 
     }

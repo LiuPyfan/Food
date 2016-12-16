@@ -62,7 +62,7 @@ public class HomeHomeFragment extends BaseFragment implements NetListener<HomeHo
     protected void initData() {
 //        mData = new ArrayList<>();
         mHomeAdapter = new HomeAdapter(mContext);
-        StartUrl(getMid(1));
+        startUrl(getMid(1));
         lRecyclerViewAdapter = new LRecyclerViewAdapter(mHomeAdapter);
         mRv.setAdapter(lRecyclerViewAdapter);
         StaggeredGridLayoutManager manager = new StaggeredGridLayoutManager(2, 1);
@@ -99,7 +99,7 @@ public class HomeHomeFragment extends BaseFragment implements NetListener<HomeHo
             public void onRefresh() {
                 mCount = 1;
                 mHomeAdapter.setClear();
-                StartUrl(getMid(mCount));
+                startUrl(getMid(mCount));
                 mRv.refreshComplete();
                 mHomeAdapter.notifyDataSetChanged();
             }
@@ -109,7 +109,7 @@ public class HomeHomeFragment extends BaseFragment implements NetListener<HomeHo
             @Override
             public void onLoadMore() {
                 mCount += 1;
-                StartUrl(getMid(mCount));
+                startUrl(getMid(mCount));
             }
         });
 
@@ -121,7 +121,7 @@ public class HomeHomeFragment extends BaseFragment implements NetListener<HomeHo
         return mid;
     }
 
-    private void StartUrl(String url) {
+    private void startUrl(String url) {
         NetHelper.MyRequest(getMid(mCount), HomeHomeBean.class, this);
     }
 

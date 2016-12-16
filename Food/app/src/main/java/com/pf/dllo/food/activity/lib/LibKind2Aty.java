@@ -130,7 +130,7 @@ public class LibKind2Aty extends BaseActivity implements NetListener<LibAtyBean>
 
         mKind2Adapter = new LibAtyKind2Adapter(this);
 
-        StartUrl(getMid(mCount));
+        startUrl(getMid(mCount));
         lRecyclerViewAdapter = new LRecyclerViewAdapter(mKind2Adapter);
         mRv.setAdapter(lRecyclerViewAdapter);
         LinearLayoutManager manager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
@@ -144,7 +144,7 @@ public class LibKind2Aty extends BaseActivity implements NetListener<LibAtyBean>
             public void onRefresh() {
                 mCount = 1;
                 mKind2Adapter.setClear();
-                StartUrl(getMid(mCount));
+                startUrl(getMid(mCount));
                 mKind2Adapter.notifyDataSetChanged();
             }
         });
@@ -153,7 +153,7 @@ public class LibKind2Aty extends BaseActivity implements NetListener<LibAtyBean>
             @Override
             public void onLoadMore() {
                 mCount += 1;
-                StartUrl(getMid(mCount));
+                startUrl(getMid(mCount));
             }
         });
 
@@ -221,7 +221,7 @@ public class LibKind2Aty extends BaseActivity implements NetListener<LibAtyBean>
 
                 mKind2Adapter = new LibAtyKind2Adapter(LibKind2Aty.this);
                 if (position == 0) {
-                    StartUrl(getMid(0));
+                    startUrl(getMid(0));
                     mTvNutRank.setText("全部");
                 } else {
                     mKind2Adapter.setClear();
@@ -238,7 +238,7 @@ public class LibKind2Aty extends BaseActivity implements NetListener<LibAtyBean>
                     public void onRefresh() {
                         mCount = 1;
                         mKind2Adapter.setClear();
-                        StartUrl(getMid(mCount));
+                        startUrl(getMid(mCount));
                         mRv.refreshComplete();
                         mKind2Adapter.notifyDataSetChanged();
                     }
@@ -247,9 +247,8 @@ public class LibKind2Aty extends BaseActivity implements NetListener<LibAtyBean>
                 mRv.setOnLoadMoreListener(new OnLoadMoreListener() {
                     @Override
                     public void onLoadMore() {
-//                        StartUrl(getNextUrl(++mCount));
                         mCount += 1;
-                        StartUrl(getMid(mCount));
+                        startUrl(getMid(mCount));
                     }
                 });
             }
@@ -292,7 +291,7 @@ public class LibKind2Aty extends BaseActivity implements NetListener<LibAtyBean>
         return refresh2Url;
     }
 
-    private void StartUrl(String url) {
+    private void startUrl(String url) {
         NetHelper.MyRequest(url, LibAtyBean.class, this);
     }
 

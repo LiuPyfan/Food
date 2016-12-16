@@ -11,7 +11,7 @@ import com.pf.dllo.food.app.Food;
 import java.util.HashMap;
 
 /**
- * Created on 2016/11/28.
+ * Created on 2016/11/29.
  */
 public class NetHelper {
     private RequestQueue mRequestQueue;
@@ -63,6 +63,7 @@ public class NetHelper {
         },mClass);
         mRequestQueue.add(gsonRequest);
     }
+
     private <T> void baseGsonPostRequest(String url, Class<T> mClass,
                                          final NetListener<T> listener,
                                          HashMap<String,String> map){

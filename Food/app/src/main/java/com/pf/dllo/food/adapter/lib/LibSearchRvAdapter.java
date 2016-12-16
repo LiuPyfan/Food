@@ -2,6 +2,7 @@ package com.pf.dllo.food.adapter.lib;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,6 +41,10 @@ public class LibSearchRvAdapter extends RecyclerView.Adapter<LibSearchRvAdapter.
         notifyDataSetChanged();
     }
 
+    public List<String> getDatas() {
+        return datas;
+    }
+
     // 创建缓存类的方法
     // 主要作用 绑定视图
     @Override
@@ -62,6 +67,7 @@ public class LibSearchRvAdapter extends RecyclerView.Adapter<LibSearchRvAdapter.
             public void onClick(View v) {
                 int pos = holder.getAdapterPosition();
                 mOnSearchRvClick.onRvClick(pos,datas.get(pos));
+                Log.d("LibSearchRvAdapter", datas.get(pos));
             }
         });
 
